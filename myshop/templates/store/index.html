@@ -1,0 +1,56 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-image">
+        <img src="{% static 'images/c.png' %}" alt="Hero Image - MyShop">
+    </div>
+    <div class="hero-content">
+        <h1>Welcome to LMASRSA</h1>
+        <p>Découvrez les meilleurs produits à des prix incroyables <strong>Limited time offer!</strong></p>
+        <a href="#" class="hero-button">Shop Now</a>
+    </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+        {% for product in featured_products %}
+        <div class="product-card">
+            <img src="{% static 'images/a.jpg' %}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.price }} MRO</p>
+            <a href="{% url 'product_detail' product.id %}" class="btn">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="hero">
+    <div class="hero-image">
+        <img src="{% static 'images/g.png' %}" alt="Hero Image - MyShop">
+    </div>
+    <div class="hero-content">
+        <h1>Welcome to LMASRSA</h1>
+        <p>Découvrez les meilleurs produits à des prix incroyables <strong>Limited time offer!</strong></p>
+        <a href="#" class="hero-button">Shop Now</a>
+    </div>
+</section>
+
+<!-- Women's Products Section -->
+<section class="women-products">
+    <h2>Women's Products</h2>
+    <div class="product-grid">
+        {% for product in womens_products %}
+        <div class="product-card">
+            <img src="{% static 'images/h.png' %}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.price }} MRO</p>
+            <a href="{% url 'product_detail' product.id %}" class="btn">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

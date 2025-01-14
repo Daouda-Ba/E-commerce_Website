@@ -1,0 +1,7 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<h1>Added to Cart</h1>
+<p>You have added {{ order.product.name }} (x{{ order.quantity }}) to your cart.</p>
+<a href="{% url 'home' %}" class="hero-button">Continue Shopping</a>
+{% endblock %}

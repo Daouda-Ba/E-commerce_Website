@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<!-- Categories Section -->
+<section class="categories-section">
+    <h2>Categories</h2>
+    <div class="category-grid">
+        {% for category in categories %}
+        <div class="category-card">
+            <img src="{{ category.image.url }}" alt="{{ category.name }}">
+            <h3>{{ category.name }}</h3>
+            <a href="{% url 'category_products' category.id %}" class="btn">Explore</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

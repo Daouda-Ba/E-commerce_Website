@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the best products at MyShop. Shop now for amazing deals!">
+    <meta name="keywords" content="MyShop, products, shopping, deals">
+    <meta name="author" content="MyShop">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}"> <!-- Link to external CSS file -->
+    <title>MyShop - {% block title %}Home{% endblock %}</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo" style="background: linear-gradient(90deg, #9a8cff, #6a5acd); background-clip: text; color: transparent; font-size: 26px; font-weight: bold; font-family: 'Poppins', sans-serif;">
+            <i class="fas fa-shopping-bag" style="color: #9a8cff; margin-right: 8px;"></i> LMARSA
+        </a>
+        <div class="navbar-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+            <li><a href="{% url 'products' %}"><i class="fas fa-box-open"></i> Products</a></li>
+            <li><a href="{% url 'categories' %}"><i class="fas fa-list"></i> Categories</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="navbar-icons">
+            <label class="dark-mode-toggle">
+                <input type="checkbox" onclick="toggleDarkMode()">
+                <span class="slider"></span>
+            </label>
+            <a href="#" aria-label="Shopping Cart"><i class="fas fa-shopping-cart"></i></a>
+            <div class="user-dropdown">
+                <a href="#" aria-label="User Profile" onclick="toggleUserDropdown(event)"><i class="fas fa-user"></i></a>
+                <div class="user-dropdown-menu" id="userDropdown">
+                    <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Block -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-media">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2025 MyShop. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="scrollToTop()" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Link to external JavaScript file -->
+    <script src="{% static 'JS/script.js' %}"></script>
+</body>
+</html>
